@@ -3,21 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+      crossorigin="anonymous"
+    />
     <title>Arrays</title>
   </head>
-  <body>
-    <div class="esercizio-dadi">
+  <body class="bg-dark text-light">
+    <div class="esercizio-dadi m-3">
       <h2>Esercizio Dadi</h2>
+      <button id="play-game" class="btn btn-primary">PLAY</button>
+      <button id="reset-game" class="btn btn-warning d-none">Reset</button>
+      <div class="game-board d-flex gap-3 d-none">
+        <div class="player-side">
+          <h3>Player</h3>
+          <h4 id="player-display">5</h4>
+        </div>
+        <div class="computer-side">
+          <h3>Computer</h3>
+          <h4 id="computer-display">5</h4>
+        </div>
+      </div>
+      <p id="result-game" class="bg-light fs-2 p-2 d-none"></p>
     </div>
-    <div class="esercizio-mail">
+    <div class="esercizio-mail m-3">
       <h2>Esercizio Mail</h2>
       <label for="email-user"
         >Controlla se tuo indirizzo email esiste nella lista:</label
       >
       <input id="email-user" type="email" placeholder="tuoemail@email.com" />
-      <button id="check-email">Check email</button>
+      <button class="btn btn-secondary" id="check-email">Check email</button>
     </div>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
+      integrity="sha512-X/YkDZyjTf4wyc2Vy16YGCPHwAY8rZJY+POgokZjQB2mhIRFJCckEGc6YyX9eNsPfn0PzThEuNs+uaomE5CO6A=="
+      crossorigin="anonymous"
+    ></script>
     <script src="./main.js"></script>
   </body>
 </html>

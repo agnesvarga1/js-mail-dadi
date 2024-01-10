@@ -1,27 +1,48 @@
 //Esercicio 1
 //Gioco dei dadi
 
-//1) genera un numero1 random e salva
-//2) genera un numero2 random e salva
+const gameBoard = document.querySelector(".game-board");
+const playerDisplay = document.querySelector("#player-display");
+const computerDisplay = document.querySelector("#computer-display");
+const playBtn = document.querySelector("#play-game");
+const rstBtn = document.querySelector("#reset-game");
+const resultDadi = document.querySelector("#result-game");
 function generaRandomNumber(min, max) {
   let randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
   return randomNumber;
 }
-
+//1) genera un numero1 random e salva
+//2) genera un numero2 random e salva
+//da 1 a 6
 let randomNumberComputer = generaRandomNumber(1, 6);
 let randomNumberPlayer = generaRandomNumber(1, 6);
-console.log(`Player:${randomNumberPlayer}, Computer:${randomNumberComputer}`);
-//3) valuta se  num1 o num2 e maggiore
-//basando questo (quale e piu grande) declara un vincitore
 
-if (randomNumberComputer > randomNumberPlayer) {
-  console.log("computer vince");
-} else if (randomNumberComputer < randomNumberPlayer) {
-  console.log("hai vinto");
-  //condizione se i numeri sono uguali
-} else {
-  console.log("Parita");
-}
+playBtn.addEventListener("click", function () {
+  playBtn.classList.add("d-none");
+  rstBtn.classList.remove("d-none");
+  gameBoard.classList.remove("d-none");
+  playerDisplay.innerHTML = randomNumberPlayer;
+  computerDisplay.innerHTML = randomNumberComputer;
+  resultDadi.classList.remove("d-none");
+  //3) valuta se  num1 o num2 e maggiore
+  //basando questo (quale e piu grande) declara un vincitore
+  if (randomNumberComputer > randomNumberPlayer) {
+    resultDadi.innerHTML = `${randomNumberComputer}  e maggiore di ${randomNumberPlayer} Vince la casa`;
+    resultDadi.classList.add("text-danger");
+  } else if (randomNumberComputer < randomNumberPlayer) {
+    resultDadi.innerHTML = ` ${randomNumberPlayer} e maggiore di  ${randomNumberComputer}  Hai vinto!!`;
+    resultDadi.classList.add("text-success");
+    //condizione se i numeri sono uguali
+  } else {
+    resultDadi.innerHTML = ` ${randomNumberPlayer}  e  ${randomNumberComputer} sono uguali Nessuno vince`;
+    resultDadi.classList.add("text-primary");
+  }
+});
+
+rstBtn.addEventListener("click", function () {
+  location.reload();
+});
+// console.log(`Player:${randomNumberPlayer}, Computer:${randomNumberComputer}`);
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //esercizio 2
